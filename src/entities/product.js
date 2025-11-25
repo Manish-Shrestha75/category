@@ -21,6 +21,14 @@ export default new EntitySchema({
       precision: 10,
       scale: 2
     },
+    image: {
+      type: 'varchar',
+      nullable: true
+    },
+    image_public_id: {
+      type: 'varchar',
+      nullable: true
+    },
     created_at: {
       type: 'timestamp',
       default: () => 'CURRENT_TIMESTAMP'

@@ -1,37 +1,37 @@
-import { EntitySchema } from "typeorm";
+import { EntitySchema } from 'typeorm';
 
 export const User = new EntitySchema({
   name: "User",
   tableName: "users",
   columns: {
     id: {
-      type: "int",
       primary: true,
+      type: "int",
       generated: true,
     },
     name: {
       type: "varchar",
-      length: 100,
-      nullable: true,
     },
     email: {
       type: "varchar",
-      length: 150,
       unique: true,
-      nullable: true, 
     },
     password: {
       type: "varchar",
-      nullable: true,
     },
-   
-    createdAt: {
-      type: "timestamp",
-      createDate: true,
+    role: {
+      type: "varchar",
+      default: "user",
     },
-    updatedAt: {
+    created_at: {
       type: "timestamp",
-      updateDate: true,
+      default: () => "CURRENT_TIMESTAMP",
+    },
+    updated_at: {
+      type: "timestamp",
+      default: () => "CURRENT_TIMESTAMP",
     },
   },
 });
+
+export default User;

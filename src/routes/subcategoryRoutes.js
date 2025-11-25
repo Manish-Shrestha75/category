@@ -8,14 +8,16 @@ import {
   deleteSubcategory
 } from '../controllers/subcategoryController.js';
 import { validateSubcategory } from '../middleware/validation.js';
+import { auth } from '../middleware/auth.js';
 
 const router = express.Router();
 
-router.get('/', getAllSubcategories);
-router.get('/category/:categoryId', getSubcategoriesByCategory);
-router.get('/:id', getSubcategoryById);
-router.post('/', validateSubcategory, createSubcategory);
-router.put('/:id', validateSubcategory, updateSubcategory);
-router.delete('/:id', deleteSubcategory);
+
+router.get('/',auth, getAllSubcategories);
+router.get('/category/:categoryId', auth, getSubcategoriesByCategory);
+router.get('/:id',auth, getSubcategoryById);
+router.post('/', auth, validateSubcategory, createSubcategory);
+router.put('/:id', auth, validateSubcategory, updateSubcategory);
+router.delete('/:id', auth, deleteSubcategory);
 
 export default router;

@@ -1,7 +1,4 @@
 import 'dotenv/config';
-import Category from '../entities/category.js';
-import Subcategory from '../entities/subcategory.js';
-import Product from '../entities/product.js';
 
 export default {
   type: 'postgres',
@@ -10,7 +7,14 @@ export default {
   username: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
-  entities: [Category, Subcategory, Product],
+  entities: [
+    'src/entities/user.js',
+    'src/entities/category.js', 
+    'src/entities/subcategory.js',
+    'src/entities/product.js',
+    'src/entities/cart.js'
+
+  ],
   synchronize: true,
   logging: false
 };
