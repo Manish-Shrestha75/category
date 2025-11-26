@@ -8,6 +8,7 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import subcategoryRoutes from './routes/subcategoryRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
+import wishlistRoutes from './routes/wishlistRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -27,7 +28,7 @@ createConnection(dbConfig)
     app.use('/api/subcategories', subcategoryRoutes);
     app.use('/api/products', productRoutes);
     app.use('/api/cart', cartRoutes);
-
+    app.use('/api/wishlist', wishlistRoutes);
 
     app.get('/', (req, res) => {
       res.json({ message: 'Category-Product API is working!' });

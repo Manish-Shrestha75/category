@@ -12,7 +12,8 @@ export default {
     'src/entities/category.js', 
     'src/entities/subcategory.js',
     'src/entities/product.js',
-    'src/entities/cart.js'
+    'src/entities/cart.js',
+    'src/entities/wishlist.js'
 
   ],
   synchronize: true,
